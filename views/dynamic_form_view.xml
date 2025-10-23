@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dynamic_form_form" model="ir.ui.view">
+        <field name="name">dynamic.form.form</field>
+        <field name="model">dynamic.form</field>
+        <field name="arch" type="xml">
+            <form string="Dynamic Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description" widget="html"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dynamic_form_tree" model="ir.ui.view">
+        <field name="name">dynamic.form.tree</field>
+        <field name="model">dynamic.form</field>
+        <field name="arch" type="xml">
+            <tree string="Dynamic Forms">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_dynamic_form_root" name="Dynamic Form Builder" sequence="10"/>
+    <menuitem id="menu_dynamic_form" name="Forms" parent="menu_dynamic_form_root" action="action_dynamic_form"/>
+
+    <record id="action_dynamic_form" model="ir.actions.act_window">
+        <field name="name">Dynamic Forms</field>
+        <field name="res_model">dynamic.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
